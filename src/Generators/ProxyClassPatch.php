@@ -97,6 +97,8 @@ class ProxyClassPatch implements ClassPatchInterface
         $mirror = new ClassMirror();
         $mirrorReflection = new ReflectionClass($mirror);
         $reflectMethodToNode = $mirrorReflection->getMethod('reflectMethodToNode');
+        // TODO: temporary fork of this change, raised upstream as https://github.com/tractorcow/classproxy/pull/8;
+        // drop the fork once that is released
         if (version_compare(PHP_VERSION, '8.1') < 1) {
             $reflectMethodToNode->setAccessible(true);
         }
